@@ -1,8 +1,8 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class Player : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 //    public float speed;
 //    public float jumpforce;
@@ -12,16 +12,16 @@
 //    private Animator anim;
 //    private Rigidbody2D rb2d;
 //    private SceneTransition scenetransition;
-//    public SpriteRenderer mySpriteRenderer;
+    public SpriteRenderer mySpriteRenderer;
 //    private ShowPanels showpanel;
 //    public bool pushleft, pushright;
-//    void Start () {
+    void Start () {
 //        anim = GetComponent<Animator>();
 //        rb2d = GetComponent<Rigidbody2D>();
-//        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
 //        scenetransition = FindObjectOfType<SceneTransition>();
 //        showpanel = FindObjectOfType<ShowPanels>();
-//    }
+   }
 
 //    // Update is called once per frame
 //    void Update()
@@ -173,4 +173,4 @@
 
 //        }
 //    }
-//}
+}

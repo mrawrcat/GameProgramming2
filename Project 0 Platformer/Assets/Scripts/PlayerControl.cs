@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
         {
             howmove();
         }
-        finishCheck();
+        //finishCheck();
     }
     void move(float howfast)
     {
@@ -34,10 +34,20 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             move(-speed);
+            anim.SetBool("isMoving", true); 
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool("isMoving", false);
+        }
+            if (Input.GetKey(KeyCode.D))
         {
             move(speed);
+            anim.SetBool("isMoving", true);
+        }
+            else if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetBool("isMoving", false);
         }
     }
     void finishCheck()
@@ -50,7 +60,7 @@ public class PlayerControl : MonoBehaviour
     IEnumerator dancetwo()
     {
         canControl = false;
-        anim.SetBool("finished", true);
+        //anim.SetBool("finished", true);
         yield return new WaitForSeconds(5);
         
         finishScreen.SetActive(true);

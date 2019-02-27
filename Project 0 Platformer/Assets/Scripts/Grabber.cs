@@ -11,6 +11,7 @@ public class Grabber : MonoBehaviour {
     public LayerMask notgrabbed;
     public Player playerscript;
     
+    
     // Use this for initialization
     void Start () {
         playerscript = GetComponent<Player>();
