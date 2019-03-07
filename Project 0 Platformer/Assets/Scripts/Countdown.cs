@@ -8,11 +8,12 @@ public class Countdown : MonoBehaviour
     public Text timetext;
     public float countdown;
     public GameObject GameOverPanel;
+    private PlayerController playerControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerControl = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -37,5 +38,6 @@ public class Countdown : MonoBehaviour
     public void showGameOverPanel()
     {
         GameOverPanel.SetActive(true);
+        playerControl.canControl = false;
     }
 }

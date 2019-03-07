@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed, jumpforce, checkradius;
     public Transform groundcheck;
     public LayerMask whatIsGround;
+    public bool canControl;
     private float moveInput;
     private bool faceR = true, isGrounded = true;
     private Rigidbody2D rb2d;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cdscript = FindObjectOfType<Countdown>();
+        canControl = true;
     }
 
     // Update is called once per frame
@@ -31,18 +33,23 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Horizontal");
-        rb2d.velocity = new Vector2(moveInput * speed, rb2d.velocity.y);
-        isGrounded = Physics2D.OverlapCircle(groundcheck.position, checkradius, whatIsGround);
-        RunControl();
-        if(moveInput != 0)
+        
+        if (canControl)
         {
-            anim.SetBool("isMoving", true);
+            moveInput = Input.GetAxis("Horizontal");
+            rb2d.velocity = new Vector2(moveInput * speed, rb2d.velocity.y);
+            isGrounded = Physics2D.OverlapCircle(groundcheck.position, checkradius, whatIsGround);
+            RunControl();
+            if(moveInput != 0)
+            {
+                anim.SetBool("isMoving", true);
             
-        }else if(moveInput == 0)
-        {
-            anim.SetBool("isMoving", false);
+            }else if(moveInput == 0)
+            {
+                anim.SetBool("isMoving", false);
+            }
         }
+        
     }
 
     void Flip()
@@ -89,6 +96,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("spikes"))
         {
             cdscript.showGameOverPanel();
+            //canControl = false;
         }
     }
 }
