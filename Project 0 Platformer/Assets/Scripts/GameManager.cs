@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("crowns" + crownNum);
         gotCrown = false;
-        countdown = 60;
+        //countdown = 60;
         SceneManager.LoadScene(scnename);
 
     }
