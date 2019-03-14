@@ -23,6 +23,10 @@ public class PlayerControl : MonoBehaviour
         {
             howmove();
         }
+        else
+        {
+            move(0);
+        }
         //finishCheck();
     }
     void move(float howfast)

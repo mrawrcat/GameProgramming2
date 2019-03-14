@@ -19,7 +19,16 @@ public class Crown : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+
             Debug.Log("Crown Obtained");
+            if (!PlayerPrefs.HasKey(GameManager.Gmgr.scene.name))
+            {
+                GameManager.Gmgr.crownNum++;
+
+            }
+            
+            Debug.Log(GameManager.Gmgr.crownNum);
+            GameManager.Gmgr.gotCrown = true;
             gameObject.SetActive(false);
         }
     }

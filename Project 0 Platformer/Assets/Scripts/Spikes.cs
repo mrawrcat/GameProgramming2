@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-
-    private Countdown cdscript;
-    // Start is called before the first frame update
-    void Start()
-    {
-        cdscript = FindObjectOfType<Countdown>();
-    }
-
-    // Update is called once per frame
-    void Update()
+    private ShowPanels showPanel;
+    private void Start()
     {
         
     }
@@ -22,7 +14,8 @@ public class Spikes : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            cdscript.showGameOverPanel();
+            showPanel = FindObjectOfType<ShowPanels>();
+            showPanel.showGameOverPanel();
         }
     }
 }

@@ -27,7 +27,10 @@ public class SceneSwitch : MonoBehaviour
     }
     public void restartlvl()
     {
+        
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+        
+
     }
 }

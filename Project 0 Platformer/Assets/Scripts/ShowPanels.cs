@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ShowPanels : MonoBehaviour
 {
-    public GameObject pausepanel;
-    private bool paused = false;
+    public GameObject GameOverPanel;
+    public GameObject pausePanel;
+    public GameObject lvlcompletePanel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +20,36 @@ public class ShowPanels : MonoBehaviour
     {
         
     }
+    public void showGameOverPanel()
+    {
+
+        GameOverPanel.SetActive(true);
+        
+        
+    }
+    public void hideGameOverPanel()
+    {
+        Unpause();
+    }
     public void showPausePanel()
     {
-        pausepanel.SetActive(true);
+        pausePanel.SetActive(true);
+        Pause();
     }
     public void hidePausePanel()
     {
-        pausepanel.SetActive(false);
+        pausePanel.SetActive(false);
+        Unpause();
+    }
+    public void showCompletePanel()
+    {
+        lvlcompletePanel.SetActive(true);
+        Pause();
+    }
+    public void hideCompletePanel()
+    {
+        lvlcompletePanel.SetActive(false);
+        Unpause();
     }
     public void Pause()
     {

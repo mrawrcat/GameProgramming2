@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed, jumpforce, checkradius;
     public Transform groundcheck;
     public LayerMask whatIsGround;
-    public bool canControl;
+    public bool canControl, isjump;
     private float moveInput;
     private bool faceR = true, isGrounded = true;
     private Rigidbody2D rb2d;
@@ -21,15 +21,29 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         cdscript = FindObjectOfType<Countdown>();
         canControl = true;
+        isjump = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (canControl)
         {
-            rb2d.velocity = Vector2.up * jumpforce;
+            if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                rb2d.velocity = Vector2.up * jumpforce;
+                
+            }
+            if (!isGrounded)
+            {
+                anim.SetBool("isJumping", true);
+            }
+            else
+            {
+                anim.SetBool("isJumping", false);
+            }
         }
+        
     }
     void FixedUpdate()
     {
@@ -40,6 +54,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = new Vector2(moveInput * speed, rb2d.velocity.y);
             isGrounded = Physics2D.OverlapCircle(groundcheck.position, checkradius, whatIsGround);
             RunControl();
+            
             if(moveInput != 0)
             {
                 anim.SetBool("isMoving", true);
@@ -48,6 +63,10 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetBool("isMoving", false);
             }
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
         
     }
@@ -91,12 +110,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("spikes"))
-        {
-            cdscript.showGameOverPanel();
-            //canControl = false;
-        }
-    }
+    
 }
