@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public float countdown;
     private PlayerController playerControl;
     private ShowPanels showPanel;
-    public int crownNum;
+    public int crownNum, bomblife;
     public bool gotCrown = false, checkSaved;
+
     [HideInInspector]
     public Scene scene;
     void Awake()
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         crownNum = PlayerPrefs.GetInt("crownNum");
         showPanel = FindObjectOfType<ShowPanels>();
         playerControl = FindObjectOfType<PlayerController>();
+        bomblife = 2;
 
     }
 
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
                 playerControl.canControl = false;
                 
             }
+            
         }
        
 

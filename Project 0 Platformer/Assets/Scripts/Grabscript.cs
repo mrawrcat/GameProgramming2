@@ -10,12 +10,12 @@ public class Grabscript : MonoBehaviour
     public Transform holdpoint;
     public float throwforce;
     public LayerMask notgrabbed;
-    
+    private Rigidbody2D rb2d;
 
     // Use this for initialization
     void Start()
     {
-
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class Grabscript : MonoBehaviour
 
                 hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
 
-                if (hit.collider != null && hit.collider.tag == "grabbable")
+                if ((hit.collider != null && hit.collider.tag == "bomb") || (hit.collider != null && hit.collider.tag == "crate"))
                 {
                     grabbed = true;
 
@@ -44,11 +44,21 @@ public class Grabscript : MonoBehaviour
             {
                 grabbed = false;
 
-                if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+                if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null && hit.collider.tag == "bomb")
                 {
                     //throws in direction of x localscale(direction facing) and y localscale
                     hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x, 1) * throwforce;
+                    GameManager.Gmgr.bomblife--;
                 }
+                else if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null && hit.collider.tag == "crate")
+                {
+                    //throws in direction of x localscale(direction facing) and y localscale
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x, 0) * 1;
+                    GetComponent<PlayerController>().canJump = true;
+                   
+
+                }
+
 
 
                 //throw
@@ -57,8 +67,18 @@ public class Grabscript : MonoBehaviour
 
         }
 
+        //put object in a transform position
         if (grabbed)
-            hit.collider.gameObject.transform.position = holdpoint.position;
+            if(hit.collider.tag == "bomb")
+            {
+                hit.collider.gameObject.transform.position = holdpoint.position;
+            }
+            else if (hit.collider.tag == "crate")
+            {
+                
+                GetComponent<PlayerController>().canJump = false;
+                hit.collider.gameObject.transform.position = holdpoint.position;
+            }
 
 
     }

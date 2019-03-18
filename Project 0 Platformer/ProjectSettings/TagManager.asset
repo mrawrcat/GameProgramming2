@@ -10,6 +10,9 @@ TagManager:
   - moving platform
   - spikes
   - crate
+  - bomb
+  - savebomb
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -20,10 +23,10 @@ TagManager:
   - 
   - 
   - Enviroment
-  - Invis
+  - JumpHelper
   - Background
   - 
-  - 
+  - Invis
   - 
   - 
   - 

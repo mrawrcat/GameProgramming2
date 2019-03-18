@@ -24,7 +24,7 @@ public class ShowPanels : MonoBehaviour
     {
 
         GameOverPanel.SetActive(true);
-        
+        Pause();
         
     }
     public void hideGameOverPanel()

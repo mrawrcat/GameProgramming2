@@ -7,27 +7,29 @@ public class PlayerController : MonoBehaviour
     public float speed, jumpforce, checkradius;
     public Transform groundcheck;
     public LayerMask whatIsGround;
-    public bool canControl, isjump;
+    public bool canControl, isjump, canJump;
+    //public GameObject holdcrate;
     private float moveInput;
     private bool faceR = true, isGrounded = true;
     private Rigidbody2D rb2d;
     private Animator anim;
-    private Countdown cdscript;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cdscript = FindObjectOfType<Countdown>();
+        
         canControl = true;
         isjump = false;
+        canJump = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canControl)
+        if (canControl && canJump)
         {
             if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
@@ -77,6 +79,9 @@ public class PlayerController : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+        
+        
+
     }
     void RunControl()
     {
