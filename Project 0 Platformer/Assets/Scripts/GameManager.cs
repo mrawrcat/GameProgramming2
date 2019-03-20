@@ -51,16 +51,17 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (countdown > 0)
+            if (countdown > 0 && Time.timeScale == 1)
             {
                 countdown -= Time.deltaTime;
+                Debug.Log("counting");
             }
             else if (countdown <= 0)
             {
                 Debug.Log("GameOver");
                 
                 showPanel = FindObjectOfType<ShowPanels>();
-                Debug.Log(showPanel.name);
+                //Debug.Log(showPanel.name);
                 showPanel.showGameOverPanel();
                 playerControl.canControl = false;
                 
@@ -91,11 +92,11 @@ public class GameManager : MonoBehaviour
     }
     public void restartlvl()
     {
-        
+        Unpause();
         scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
         gotCrown = false;
-        Unpause();
+        
         
     }
     public void deletePrefs()

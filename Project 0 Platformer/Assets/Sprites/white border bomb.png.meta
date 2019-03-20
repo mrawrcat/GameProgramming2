@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-guid: de7611dc0e6b2db4490a82857c71d0ee
+guid: 45c5115b76238d44295e275280a8ff31
 TextureImporter:
   fileIDToRecycleName:
-    21300000: reference flynn son of crimson run_0
-    21300002: reference flynn son of crimson run_1
-    21300004: reference flynn son of crimson run_2
-    21300006: reference flynn son of crimson run_3
-    21300008: reference flynn son of crimson run_4
-    21300010: reference flynn son of crimson run_5
-    21300012: reference flynn son of crimson run_6
-    21300014: reference flynn son of crimson run_7
+    21300000: white border bomb_0
+    21300002: white border bomb_1
+    21300004: white border bomb_2
+    21300006: white border bomb_3
+    21300008: white border bomb_4
+    21300010: white border bomb_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -125,161 +123,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: reference flynn son of crimson run_0
+      name: white border bomb_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 9
+        y: 41
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e4a92b174d8d1c45b564e96d20073c1
+      spriteID: 16e1ae2a4228a1746bb3d451ac6bc245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: reference flynn son of crimson run_1
+      name: white border bomb_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 41
+        y: 41
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd732ba06ff5e914db138fc9c61f3299
+      spriteID: 45c8cb8fe68e68e4eb4cbb30d6196afd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: reference flynn son of crimson run_2
+      name: white border bomb_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 9
+        y: 9
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac2ba3b7e7e9c3e449249dd09b2ba201
+      spriteID: c3386962fa0898548bbc14a81e9a61de
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: reference flynn son of crimson run_3
+      name: white border bomb_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 41
+        y: 9
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84566639236dad04992faef4518edb86
+      spriteID: 52a61f5ed47871348a9586d5a16c538b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: reference flynn son of crimson run_4
+      name: white border bomb_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
+        x: 73
+        y: 9
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d688e1968b0fcff45bbe4bb8be7060a0
+      spriteID: c186b2f454f2e3c43b4ab38d254e3200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: reference flynn son of crimson run_5
+      name: white border bomb_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
+        x: 105
+        y: 9
+        width: 14
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe41d66c97fc93244a7e197a04dd11c5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: reference flynn son of crimson run_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1409e3bd31d45848946bff8284807dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: reference flynn son of crimson run_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c31fb1e2bce93734590d78dc287a525d
+      spriteID: cd5c4e536db55174fbcbba8f8c8f5e4a
       vertices: []
       indices: 
       edges: []
@@ -287,7 +245,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0898d531f5ceb8d4db415388cf0b8c5a
+    spriteID: 1e85306e6c65f5845a0167a4ecf897bc
     vertices: []
     indices: 
     edges: []

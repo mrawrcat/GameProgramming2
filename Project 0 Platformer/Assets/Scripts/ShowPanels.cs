@@ -24,8 +24,8 @@ public class ShowPanels : MonoBehaviour
     {
 
         GameOverPanel.SetActive(true);
-        Pause();
-        
+        //Pause();
+        FindObjectOfType<PlayerController>().canControl = false;
     }
     public void hideGameOverPanel()
     {
