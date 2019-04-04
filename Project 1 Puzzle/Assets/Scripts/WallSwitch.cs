@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class WallSwitch : MonoBehaviour
 {
-    private MoveWall moveplatformscript;
-    
+    //private MoveWall moveplatformscript;
+    public GameObject wall;
+    public string triggerObject;
     // Start is called before the first frame update
     void Start()
     {
-        moveplatformscript = FindObjectOfType<MoveWall>();
+        //moveplatformscript = FindObjectOfType<MoveWall>();
     }
 
     // Update is called once per frame
@@ -19,10 +20,11 @@ public class WallSwitch : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ghost")
+        if (collision.tag == triggerObject)
         {
             Debug.Log("stepped on switch");
-            moveplatformscript.open = true;
+            wall.GetComponent<MoveWall>().open = true;
+            ///moveplatformscript.open = true;
         }
     }
 

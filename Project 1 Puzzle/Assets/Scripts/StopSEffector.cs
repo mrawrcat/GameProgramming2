@@ -5,6 +5,7 @@ using UnityEngine;
 public class StopSEffector : MonoBehaviour
 {
     public GameObject conveyor;
+    public Animator[] anims;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,10 @@ public class StopSEffector : MonoBehaviour
         {
             conveyor.GetComponent<SurfaceEffector2D>().speed = 0;
             conveyor.layer = 8;
+            for(int i = 0; i < anims.Length; i++)
+            {
+                anims[i].enabled = false;
+            }
         }
     }
 }

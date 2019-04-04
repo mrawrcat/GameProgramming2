@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostThrough : MonoBehaviour
+public class LedgeClimb : MonoBehaviour
 {
-    private PlayerController playercontrol;
     // Start is called before the first frame update
     void Start()
     {
-        playercontrol = FindObjectOfType<PlayerController>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Player")
+        {
+            Debug.Log("hit collier");
+        }
     }
 }

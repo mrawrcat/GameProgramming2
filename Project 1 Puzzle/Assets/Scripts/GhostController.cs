@@ -7,9 +7,11 @@ public class GhostController : MonoBehaviour
     public bool ghostControl;
     public float speed;
     public bool faceR = true;
+    public GameObject player;
     private Rigidbody2D rb2d;
     private PlayerPlusGhost playerControl;
     private float moveInputX, moveInputY;
+
     
     // Start is called before the first frame update
     void Start()
@@ -30,13 +32,27 @@ public class GhostController : MonoBehaviour
         }
         else if(playerControl.ghosted == true)
         {
+
+            //float dist = Vector2.Distance(transform.position, player.transform.position);
+            //if(dist < 4)
+            //{
+            //    ghostControl = true;
+            //    moveInputX = Input.GetAxis("Horizontal");
+            //    moveInputY = Input.GetAxis("Vertical");
+            //    transform.Translate(moveInputX * speed * Time.deltaTime, moveInputY * speed * Time.deltaTime, 0);
+            //}
+            //else if(dist > 4)
+            //{
+            //    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            //}
+
             ghostControl = true;
             moveInputX = Input.GetAxis("Horizontal");
             moveInputY = Input.GetAxis("Vertical");
             rb2d.velocity = new Vector2(moveInputX * speed, moveInputY * speed);
-
             
-       
+
+
             Facing();
         }
            

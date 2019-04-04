@@ -9,6 +9,11 @@ TagManager:
   - End
   - Groundcheck
   - Ghost
+  - Conveyor
+  - Ledge
+  - ElevatorSwitch
+  - MovingPlatform
+  - Crate
   layers:
   - Default
   - TransparentFX
