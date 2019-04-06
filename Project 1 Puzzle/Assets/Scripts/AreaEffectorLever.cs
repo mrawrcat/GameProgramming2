@@ -33,10 +33,12 @@ public class AreaEffectorLever : MonoBehaviour
             if(wall.GetComponent<AreaEffector2D>().forceMagnitude == prevMag)
             {
                 wall.GetComponent<AreaEffector2D>().forceMagnitude = 0;
+                GetComponent<SpriteRenderer>().sprite = sprite[1];
             }
             else if(wall.GetComponent<AreaEffector2D>().forceMagnitude == 0)
             {
                 wall.GetComponent<AreaEffector2D>().forceMagnitude = prevMag;
+                GetComponent<SpriteRenderer>().sprite = sprite[0];
             }
         }
     }

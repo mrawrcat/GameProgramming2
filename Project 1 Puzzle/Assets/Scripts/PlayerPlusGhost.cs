@@ -91,7 +91,7 @@ public class PlayerPlusGhost : MonoBehaviour
             }
            
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             bodyControl = !bodyControl;
             ghosted = !ghosted;
