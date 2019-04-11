@@ -147,7 +147,7 @@ public class PlayerPlusGhost : MonoBehaviour
     }
     void JumpCheck()
     {
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             isjump = false;
         }
@@ -178,7 +178,7 @@ public class PlayerPlusGhost : MonoBehaviour
                 isjump = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if ((Input.GetKey(KeyCode.UpArrow) && groundedcounter > 0))
         {
             rb2d.velocity = Vector2.up * jumpforce;
             isjump = true;
