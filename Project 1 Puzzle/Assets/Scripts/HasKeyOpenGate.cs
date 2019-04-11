@@ -14,13 +14,6 @@ public class HasKeyOpenGate : MonoBehaviour
         player = FindObjectOfType<PlayerPlusGhost>();
         usedkey = FindObjectOfType<UsedKey>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
       if(collision.collider.tag == "Player" && player.gotKey == true)
@@ -29,8 +22,6 @@ public class HasKeyOpenGate : MonoBehaviour
             player.gotKey = false;
             player.usedKey = true;
             usedkey.usethekey();
-
       }  
     }
-
 }

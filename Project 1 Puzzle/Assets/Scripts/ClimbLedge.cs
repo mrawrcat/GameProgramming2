@@ -14,8 +14,11 @@ public class ClimbLedge : MonoBehaviour
     {
         if(collision.tag == "Ledge")
         {
-
-            gameObject.GetComponentInParent<PlayerPlusGhost>().startClimbLedge();
+            if (gameObject.GetComponentInParent<PlayerPlusGhost>().bodyControl == true)
+            {
+                gameObject.GetComponentInParent<PlayerPlusGhost>().startClimbLedge();
+            }
+           
         }
     }
 }

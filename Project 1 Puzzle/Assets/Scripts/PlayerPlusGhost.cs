@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPlusGhost : MonoBehaviour
 {
-    public float speed, jumpforce, jumptime, checkradius;
+    public float speed, jumpforce, jumptime, groundtime, checkradius;
     public Transform groundcheck;
     public LayerMask whatIsGround;
     public bool bodyControl, isjump, ghosted, onSurface, isInteract, gotKey, usedKey;
@@ -14,7 +14,7 @@ public class PlayerPlusGhost : MonoBehaviour
     private Animator anim;
     private LineRenderer line;
     public GameObject shackle, ghostTint;
-    private float startWidth = .05f, endWidth = .05f, jumpcounter;
+    private float startWidth = .05f, endWidth = .05f, jumpcounter, groundedcounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,61 +42,14 @@ public class PlayerPlusGhost : MonoBehaviour
     {
         if (bodyControl)
         {
-            if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-            {
-                rb2d.velocity = Vector2.up * jumpforce;
-                isjump = true;
-                jumpcounter = jumptime;
 
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
-            {
-                rb2d.velocity = Vector2.up * jumpforce;
-                isjump = true;
-                jumpcounter = jumptime;
-
-            }
-            if (Input.GetKey(KeyCode.W) && isjump == true)
-            {
-                if(jumpcounter > 0)
-                {
-                    rb2d.velocity = Vector2.up * jumpforce;
-                    jumpcounter -= Time.deltaTime;
-                }
-                else
-                {
-                    isjump = false;
-                }
-            }
-            if (Input.GetKey(KeyCode.UpArrow) && isjump == true)
-            {
-                if (jumpcounter > 0)
-                {
-                    rb2d.velocity = Vector2.up * jumpforce;
-                    jumpcounter -= Time.deltaTime;
-                }
-                else
-                {
-                    isjump = false;
-                }
-
-            }
-            if (!isGrounded)
-            {
-                anim.SetBool("isJumping", true);
-            }
-            else
-            {
-                anim.SetBool("isJumping", false);
-            }
-           
+            JumpCheck();
+            GroundedDetectAnim();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             bodyControl = !bodyControl;
             ghosted = !ghosted;
-           
-
         }
         if (ghosted == true)
         {
@@ -112,15 +65,6 @@ public class PlayerPlusGhost : MonoBehaviour
             shackle.SetActive(false);
             ghostTint.SetActive(false);
             //rb2d.mass = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!isInteract)
-            {
-                //upsideDown();
-            }
-           
         }
         
         isGrounded = Physics2D.OverlapCircle(groundcheck.position, checkradius, whatIsGround);
@@ -178,9 +122,6 @@ public class PlayerPlusGhost : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
-
-
-
     }
     void Facing()
     {
@@ -191,6 +132,95 @@ public class PlayerPlusGhost : MonoBehaviour
         else if (!faceR && moveInputX > 0)
         {
             Flip();
+        }
+    }
+    void GroundedDetectAnim()
+    {
+        if (!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
+    }
+    void JumpCheck()
+    {
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            isjump = false;
+        }
+        if (isGrounded)
+        {
+            groundedcounter = groundtime;
+            isjump = false;
+        }
+        if (!isGrounded)
+        {
+            groundedcounter -= Time.deltaTime;
+        }
+        if ((Input.GetKey(KeyCode.W) && groundedcounter > 0))
+        {
+            rb2d.velocity = Vector2.up * jumpforce;
+            isjump = true;
+            jumpcounter = jumptime;
+        }
+        if (Input.GetKey(KeyCode.W) && isjump == true)
+        {
+            if (jumpcounter > 0)
+            {
+                rb2d.velocity = Vector2.up * jumpforce;
+                jumpcounter -= Time.deltaTime;
+            }
+            else
+            {
+                isjump = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        {
+            rb2d.velocity = Vector2.up * jumpforce;
+            isjump = true;
+            jumpcounter = jumptime;
+        }
+        if (Input.GetKey(KeyCode.UpArrow) && isjump == true)
+        {
+            if (jumpcounter > 0)
+            {
+                rb2d.velocity = Vector2.up * jumpforce;
+                jumpcounter -= Time.deltaTime;
+            }
+            else
+            {
+                isjump = false;
+            }
+        }
+    }
+    void JumpCheck2()
+    {
+
+        if (Input.GetKeyUp(KeyCode.W) || isGrounded)
+        {
+            isjump = false;
+        }
+        if ((Input.GetKey(KeyCode.W) && isGrounded))
+        {
+            rb2d.velocity = Vector2.up * jumpforce;
+            isjump = true;
+            jumpcounter = jumptime;
+        }
+        if (Input.GetKey(KeyCode.W) && isjump == true)
+        {
+            if (jumpcounter > 0)
+            {
+                rb2d.velocity = Vector2.up * jumpforce;
+                jumpcounter -= Time.deltaTime;
+            }
+            else
+            {
+                isjump = false;
+            }
         }
     }
     void upsideDown()

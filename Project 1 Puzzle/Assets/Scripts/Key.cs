@@ -38,11 +38,13 @@ public class Key : MonoBehaviour
     {
         if(collision.tag == "Ghost" && player.gotKey == false)
         {
+            Debug.Log("key touched ghost");
             gotkey = true;
             player.gotKey = true;
         }
         if (collision.tag == "Player" && player.gotKey == false)
         {
+            Debug.Log("key touched Player");
             gotkey = true;
             player.gotKey = true;
         }

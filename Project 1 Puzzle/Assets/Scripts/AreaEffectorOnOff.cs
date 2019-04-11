@@ -13,7 +13,9 @@ public class AreaEffectorOnOff : MonoBehaviour
         if (collision.tag == triggerObject)
         {
             wall.GetComponent<AreaEffector2D>().forceMagnitude = 0;
+            wall.GetComponent<SpriteRenderer>().color = Color.gray;
             GetComponent<SpriteRenderer>().sprite = sprite[1];
+
             
         }
     }
