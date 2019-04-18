@@ -6,108 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    /*
-    public static GameManager Gmgr;
-    public float countdown;
-    private PlayerController playerControl;
-    private ShowPanels showPanel;
-    public int crownNum, bomblife;
-    public bool gotCrown = false, checkSaved;
-
-    [HideInInspector]
-    public Scene scene;
+    public static GameManager gmanager;
     void Awake()
     {
-        if(Gmgr == null)
+        if (gmanager == null)
         {
-            Gmgr = this;
-            //DontDestroyOnLoad(gameObject);
+            gmanager = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else if(Gmgr != this)
+        else if (gmanager != this)
         {
             Destroy(gameObject);
         }
-        Debug.Log("crown amt: " + PlayerPrefs.GetInt("crownNum"));
-        crownNum = PlayerPrefs.GetInt("crownNum");
-        showPanel = FindObjectOfType<ShowPanels>();
-        playerControl = FindObjectOfType<PlayerController>();
-        bomblife = 2;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Countdown();
-        //crownNum = PlayerPrefs.GetInt("crownNum");
-
-    }
-    void Countdown()
-    {
-        scene = SceneManager.GetActiveScene();
-        
-        if(scene.name.ToString() == "StartScreen")
-        {
-            countdown = 60;
-        }
-        else
-        {
-            if (countdown > 0 && Time.timeScale == 1)
-            {
-                countdown -= Time.deltaTime;
-                Debug.Log("counting");
-            }
-            else if (countdown <= 0)
-            {
-                Debug.Log("GameOver");
-                
-                showPanel = FindObjectOfType<ShowPanels>();
-                //Debug.Log(showPanel.name);
-                showPanel.showGameOverPanel();
-                playerControl.canControl = false;
-                
-            }
-            
-        }
-       
-
-    }
-    public void Pause()
-    {
-        Time.timeScale = 0;
-    }
-    public void Unpause()
-    {
-        Time.timeScale = 1;
-    }
-    public void scneSwitch(string scnename)
-    {
-        
-        crownNum = PlayerPrefs.GetInt("crownNum");
-        
-        Debug.Log("crowns" + crownNum);
-        gotCrown = false;
-        //countdown = 60;
-        SceneManager.LoadScene(scnename);
-
-    }
-    public void restartlvl()
-    {
-        Unpause();
-        scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-        gotCrown = false;
-        
         
     }
-    public void deletePrefs()
+
+    public void ResetGame()
     {
-        PlayerPrefs.DeleteAll();
-        crownNum = PlayerPrefs.GetInt("crownNum");
+        SceneManager.LoadScene(0);
     }
-    public void resetCountdown()
-    {
-        countdown = 60;
-    }
-    */
 }

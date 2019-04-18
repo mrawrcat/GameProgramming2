@@ -5,22 +5,27 @@ using UnityEngine;
 public class LvlFinishDoor : MonoBehaviour
 {
     public Transform completeTeleport;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            collision.transform.position = completeTeleport.transform.position;
+            if(collision.GetComponent<PlayerPlusGhost>().bodyControl == true)
+            {
+                collision.transform.position = completeTeleport.transform.position;
+            }
+            
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (collision.GetComponent<PlayerPlusGhost>().bodyControl == true)
+            {
+                collision.transform.position = completeTeleport.transform.position;
+            }
+
         }
     }
 }

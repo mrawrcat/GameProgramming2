@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 502130f717cc9c5469d1c7d0ae1b01d6
+guid: 4bc190349c018a3408ac8a5d728bc0cc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: redswitch_0
-    21300002: redswitch_1
+    21300000: reference flynn son of crimson landing_0
+    21300002: reference flynn son of crimson landing_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -119,41 +119,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: redswitch_0
+      name: reference flynn son of crimson landing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 8
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8511765c9ff2274ebc45d14f8219151
+      spriteID: c3de89a9bfafa5e479ba04cc1ed38658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: redswitch_1
+      name: reference flynn son of crimson landing_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 6
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a35cba06dd6d191418a8d9165cf79f81
+      spriteID: f991f8b965ecb7743902ac1859d5a2e5
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 857d1f3e3ab8d6e4fae78836f192f037
+    spriteID: 8556f4de9248c0244b1f1a9baf56d785
     vertices: []
     indices: 
     edges: []

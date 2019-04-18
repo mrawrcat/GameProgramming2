@@ -46,7 +46,7 @@ public class PlayerPlusGhost : MonoBehaviour
             JumpCheck();
             GroundedDetectAnim();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
             bodyControl = !bodyControl;
             ghosted = !ghosted;
