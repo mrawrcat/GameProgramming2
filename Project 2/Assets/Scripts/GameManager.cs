@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float trashCap, plasticCap, aluminumCap;
     //auto resource increasers
     public float trashCollectors, plasticCollectors, metalCollectors;
+    //hires
+    public float trashfriendcost, trashworkercost, trashgarbagemancost, trashorganizationcost;
     //resource cap modifiers -> increase cap by this much
     public float increaseTrashCap, increasePlasticCap, increaseAlumCap;
     //resource requirement for cap modifiers
@@ -37,6 +39,12 @@ public class GameManager : MonoBehaviour
         trashCollectors = 0;
         plasticCollectors = 0;
         metalCollectors = 0;
+
+        trashfriendcost = 10;
+        trashworkercost = 100;
+        trashgarbagemancost = 1000;
+        trashorganizationcost = 100000;
+
         increaseTrashCap = 500;
         increaseTrashCapCost = 10;
         increaseCollectorCost = 10;
@@ -71,6 +79,13 @@ public class GameManager : MonoBehaviour
         trashCollectors = 0;
         plasticCollectors = 0;
         metalCollectors = 0;
+
+        trashfriendcost = 10;
+        trashworkercost = 100;
+        trashgarbagemancost = 1000;
+        trashorganizationcost = 100000;
+
+
         trashCap = 500;
         plasticCap = 200;
         increaseTrashCap = 500;

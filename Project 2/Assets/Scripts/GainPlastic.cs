@@ -15,7 +15,7 @@ public class GainPlastic : MonoBehaviour
     {
         if (GameManager.gmanager.bonusCount >= 30)
         {
-            //GameManager.gmanager.trash += 50;
+            
             //Debug.Log("hit 30");
             GameManager.gmanager.bonusVisual -= Time.deltaTime;
             goingdown = true;
@@ -45,7 +45,7 @@ public class GainPlastic : MonoBehaviour
                 if (GameManager.gmanager.bonusVisual >= 29)
                 {
                     GameManager.gmanager.plastic += 50;
-                    //GameManager.gmanager.bonusMulti = 2;
+                    GameManager.gmanager.bonusMulti = 2;
                     Debug.Log("plus 50 plastic, increased production?");
 
                 }

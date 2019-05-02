@@ -6,8 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class GameHelper : MonoBehaviour
 {
-    public Text trashText, plasticText;
-    public Text collectorText, incTrashCapCostText;
+    //public Text trashText, plasticText;
+    //public Text collectorText, incTrashCapCostText;
 
     // these are the resources you can obtain
     public Text trashTxt, plasticTxt, aluminumTxt;
@@ -28,17 +28,17 @@ public class GameHelper : MonoBehaviour
     }
     private void Update()
     {
-        trashText.text = "Trash Collected: " + Mathf.Round(GameManager.gmanager.trash) + "/" + Mathf.Round(GameManager.gmanager.trashCap);
-        plasticText.text = "Plastic Obtained: " + Mathf.Round(GameManager.gmanager.plastic) + "/" + Mathf.Round(GameManager.gmanager.plasticCap);
-        collectorText.text = "Hired " + GameManager.gmanager.trashCollectors + " Collectors " + "This costs: " + GameManager.gmanager.increaseCollectorCost;
-        incTrashCapCostText.text = "Increase Trash Cap cost: " +  GameManager.gmanager.increaseTrashCapCost;
+        //trashText.text = "Trash Collected: " + Mathf.Round(GameManager.gmanager.trash) + "/" + Mathf.Round(GameManager.gmanager.trashCap);
+        //plasticText.text = "Plastic Obtained: " + Mathf.Round(GameManager.gmanager.plastic) + "/" + Mathf.Round(GameManager.gmanager.plasticCap);
+        //collectorText.text = "Hired " + GameManager.gmanager.trashCollectors + " Collectors " + "This costs: " + GameManager.gmanager.increaseCollectorCost;
+        //incTrashCapCostText.text = "Increase Trash Cap cost: " +  GameManager.gmanager.increaseTrashCapCost;
 
         ////////////////////
         ///
 
-        trashTxt.text = Mathf.Round(GameManager.gmanager.trash) + "/" + Mathf.Round(GameManager.gmanager.trashCap);
-        plasticTxt.text = Mathf.Round(GameManager.gmanager.plastic) + "/" + Mathf.Round(GameManager.gmanager.plasticCap);
-        aluminumTxt.text = "Aluminum";
+        trashTxt.text = "Trash Collected: " + Mathf.Round(GameManager.gmanager.trash) + "/" + Mathf.Round(GameManager.gmanager.trashCap);
+        plasticTxt.text = "Plastic Obtained: " + Mathf.Round(GameManager.gmanager.plastic) + "/" + Mathf.Round(GameManager.gmanager.plasticCap);
+        aluminumTxt.text = "Aluminum Obtained: " + Mathf.Round(GameManager.gmanager.aluminum) + "/" + Mathf.Round(GameManager.gmanager.aluminumCap);
         trashCapTxt.text = "trash Cap";
         plasCapTxt.text = "plastic Cap";
         alumCapTxt.text = "alum Cap";

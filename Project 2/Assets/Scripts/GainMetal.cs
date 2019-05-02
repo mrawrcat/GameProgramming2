@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GainTrash : MonoBehaviour
+public class GainMetal : MonoBehaviour
 {
-
     private HoverUIListener UIListener;
     public bool goingdown;
     private void Start()
@@ -38,15 +37,14 @@ public class GainTrash : MonoBehaviour
             Debug.Log("Cancelled OnMouseDown! A UI element has override this object!");
         }
         else
-        {  
-            if (GameManager.gmanager.trash < GameManager.gmanager.trashCap)
+        {
+            if (GameManager.gmanager.aluminum < GameManager.gmanager.aluminumCap)
             {
-                GameManager.gmanager.trash += 1;
+                GameManager.gmanager.aluminum += 1;
 
                 if (GameManager.gmanager.bonusVisual >= 29)
                 {
-
-                    GameManager.gmanager.trash += 50;
+                    GameManager.gmanager.aluminum += 50;
                     GameManager.gmanager.bonusMulti = 2;
                     Debug.Log("plus 50 trash, increased production?");
 
@@ -58,9 +56,8 @@ public class GainTrash : MonoBehaviour
                 GameManager.gmanager.bonusCount++;
                 GameManager.gmanager.bonusVisual++;
             }
-            
+
         }
-        
+
     }
-    
 }
