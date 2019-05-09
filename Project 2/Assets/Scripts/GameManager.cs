@@ -15,13 +15,19 @@ public class GameManager : MonoBehaviour
     public float trashCollectors, plasticCollectors, metalCollectors;
     //hires
     public float trashfriendcost, trashworkercost, trashgarbagemancost, trashorganizationcost;
-    //resource cap modifiers -> increase cap by this much
+    public float plasticfriendcost, plasticworkercost, plasticgarbagemancost, plasticorganizationcost;
+    public float alumfriendcost, alumworkercost, alumgarbagemancost, alumorganizationcost;
+    //resource cap modifiers -> increase cap by this much --> might be obsolete
     public float increaseTrashCap, increasePlasticCap, increaseAlumCap;
     //resource requirement for cap modifiers
     public float increaseTrashCapCost, increaseCollectorCost, increasePlasCapCost, increaseAlumCapCost;
     //stuff for getting bonus boost?
     public float bonusVisual, bonusCount, bonusMulti;
-
+    //increase trash cap type cost
+    public float trashfriendcostc, trashworkercostc, trashgarbagemancostc, trashorganizationcostc;
+    //resource unlocked or not
+    public bool unlockedPlastic, unlockedAlum;
+    public float contentSizeX = 800, contentSizeY = 150;
     void Awake()
     {
         if (gmanager == null)
@@ -45,12 +51,23 @@ public class GameManager : MonoBehaviour
         trashgarbagemancost = 1000;
         trashorganizationcost = 100000;
 
+        plasticfriendcost = 1000;
+
+        alumfriendcost = 3000;
+
         increaseTrashCap = 500;
         increaseTrashCapCost = 10;
         increaseCollectorCost = 10;
         bonusVisual = 0;
         bonusCount = 0;
         bonusMulti = 1;
+
+        unlockedPlastic = false;
+        unlockedAlum = false;
+        
+        contentSizeX = 800;
+        contentSizeY = 150;
+        
     }
     private void Update()
     {
@@ -76,6 +93,8 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(0);
         trash = 0;
         plastic = 0;
+        aluminum = 0;
+
         trashCollectors = 0;
         plasticCollectors = 0;
         metalCollectors = 0;
@@ -85,6 +104,7 @@ public class GameManager : MonoBehaviour
         trashgarbagemancost = 1000;
         trashorganizationcost = 100000;
 
+        plasticfriendcost = 1000;
 
         trashCap = 500;
         plasticCap = 200;
@@ -95,6 +115,13 @@ public class GameManager : MonoBehaviour
         bonusVisual = 0;
         bonusMulti = 1;
 
+        unlockedPlastic = false;
+        unlockedAlum = false;
+
+        contentSizeX = 800;
+        contentSizeY = 150;
+        
+        
     }
 
     public void SaveData()
@@ -104,15 +131,29 @@ public class GameManager : MonoBehaviour
     public void LoadData()
     {
         GameData data = SaveSystem.loadData();
+
         trash = data.trash;
         plastic = data.plastic;
+        aluminum = data.aluminum;
+
         trashCap = data.trashCap;
         plasticCap = data.plasticCap;
+
         trashCollectors = data.trashCollectors;
+        plasticCollectors = data.plasticCollectors;
+        trashfriendcost = data.trashfriendcost;
+
+        plasticfriendcost = data.plasticfriendcost;
         increaseTrashCap = data.increaseTrashCap;
+
         increaseTrashCapCost = data.increaseTrashCapCost;
         increaseCollectorCost = data.increaseCollectorCost;
 
-}
+        unlockedPlastic = data.unlockedPlastic;
+        unlockedAlum = data.unlockedAlum;
+
+        contentSizeX = data.contentSizeX;
+        contentSizeY = data.contentSizeY;
+    }
    
 }

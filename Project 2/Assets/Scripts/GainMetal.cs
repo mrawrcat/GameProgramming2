@@ -25,7 +25,7 @@ public class GainMetal : MonoBehaviour
         {
             GameManager.gmanager.bonusCount = 0;
             GameManager.gmanager.bonusVisual = 0;
-            //GameManager.gmanager.bonusMulti = 1;
+            GameManager.gmanager.bonusMulti = 1;
             goingdown = false;
 
         }
@@ -44,9 +44,16 @@ public class GainMetal : MonoBehaviour
 
                 if (GameManager.gmanager.bonusVisual >= 29)
                 {
-                    GameManager.gmanager.aluminum += 50;
-                    GameManager.gmanager.bonusMulti = 2;
-                    Debug.Log("plus 50 trash, increased production?");
+                    if (GameManager.gmanager.aluminum <= GameManager.gmanager.aluminumCap - 50)
+                    {
+                        GameManager.gmanager.aluminum += 50;
+                        GameManager.gmanager.bonusMulti = 2;
+                        Debug.Log("plus 50 trash, increased production?");
+                    }
+                    else if (GameManager.gmanager.aluminum > GameManager.gmanager.aluminumCap - 50)
+                    {
+                        GameManager.gmanager.aluminum = GameManager.gmanager.aluminumCap;
+                    }
 
                 }
 

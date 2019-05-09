@@ -11,13 +11,19 @@ public class GameData
     //this is the amt of resources you can have of a resource
     public float trashCap, plasticCap, aluminumCap;
     //auto resource increasers
-    public float trashCollectors;
+    public float trashCollectors, plasticCollectors, metalCollectors;
+    //hires
+    public float trashfriendcost, trashworkercost, trashgarbagemancost, trashorganizationcost;
+    public float plasticfriendcost, plasticworkercost, plasticgarbagemancost, plasticorganizationcost;
     //resource cap modifiers -> increase cap by this much
     public float increaseTrashCap, increasePlasticCap, increaseAlumCap;
     //resource requirement for cap modifiers
     public float increaseTrashCapCost, increaseCollectorCost, increasePlasCapCost, increaseAlumCapCost;
     //bonus
     public float bonusCount, bonusVisual, bonusMulti;
+    //unlocked or not
+    public bool unlockedPlastic, unlockedAlum;
+    public float contentSizeX, contentSizeY;
 
     public GameData(GameManager gmanager)
     {
@@ -30,6 +36,11 @@ public class GameData
         aluminumCap = gmanager.aluminumCap;
 
         trashCollectors = gmanager.trashCollectors;
+        plasticCollectors = gmanager.plasticCollectors;
+
+        trashfriendcost = gmanager.trashfriendcost;
+
+        plasticfriendcost = gmanager.plasticfriendcost;
 
         increaseTrashCap = gmanager.increaseTrashCap;
         increasePlasticCap = gmanager.increasePlasticCap;
@@ -44,5 +55,10 @@ public class GameData
         bonusVisual = gmanager.bonusVisual;
         bonusMulti = gmanager.bonusMulti;
 
+        unlockedPlastic = gmanager.unlockedPlastic;
+        unlockedAlum = gmanager.unlockedAlum;
+
+        contentSizeX = gmanager.contentSizeX;
+        contentSizeY = gmanager.contentSizeY;
     }
 }

@@ -25,7 +25,7 @@ public class GainPlastic : MonoBehaviour
         {
             GameManager.gmanager.bonusCount = 0;
             GameManager.gmanager.bonusVisual = 0;
-            //GameManager.gmanager.bonusMulti = 1;
+            GameManager.gmanager.bonusMulti = 1;
             goingdown = false;
 
         }
@@ -44,9 +44,16 @@ public class GainPlastic : MonoBehaviour
 
                 if (GameManager.gmanager.bonusVisual >= 29)
                 {
-                    GameManager.gmanager.plastic += 50;
-                    GameManager.gmanager.bonusMulti = 2;
-                    Debug.Log("plus 50 plastic, increased production?");
+                    if (GameManager.gmanager.plastic <= GameManager.gmanager.plasticCap - 50)
+                    {
+                        GameManager.gmanager.plastic += 50;
+                        GameManager.gmanager.bonusMulti = 2;
+                        Debug.Log("plus 50 trash, increased production?");
+                    }
+                    else if (GameManager.gmanager.plastic > GameManager.gmanager.plasticCap - 50)
+                    {
+                        GameManager.gmanager.plastic = GameManager.gmanager.plasticCap;
+                    }
 
                 }
 

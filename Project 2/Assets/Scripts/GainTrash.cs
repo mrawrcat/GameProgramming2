@@ -26,7 +26,7 @@ public class GainTrash : MonoBehaviour
         {
             GameManager.gmanager.bonusCount = 0;
             GameManager.gmanager.bonusVisual = 0;
-            //GameManager.gmanager.bonusMulti = 1;
+            GameManager.gmanager.bonusMulti = 1;
             goingdown = false;
 
         }
@@ -45,10 +45,17 @@ public class GainTrash : MonoBehaviour
 
                 if (GameManager.gmanager.bonusVisual >= 29)
                 {
-
-                    GameManager.gmanager.trash += 50;
-                    GameManager.gmanager.bonusMulti = 2;
-                    Debug.Log("plus 50 trash, increased production?");
+                    if(GameManager.gmanager.trash <= GameManager.gmanager.trashCap - 50)
+                    {
+                        GameManager.gmanager.trash += 50;
+                        GameManager.gmanager.bonusMulti = 2;
+                        Debug.Log("plus 50 trash, increased production?");
+                    }
+                    else if(GameManager.gmanager.trash > GameManager.gmanager.trashCap - 50)
+                    {
+                        GameManager.gmanager.trash = GameManager.gmanager.trashCap;
+                    }
+                    
 
                 }
 

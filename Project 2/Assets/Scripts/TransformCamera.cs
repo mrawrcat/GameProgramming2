@@ -8,15 +8,18 @@ public class TransformCamera : MonoBehaviour
     public Transform[] tab;
     public int currentTab;
     public Button leftButton, rightButton;
+    public bool unlocked;
     private void Start()
     {
         currentTab = 0;
+        unlocked = false;
     }
     private void Update()
     {
         if(currentTab == 0)
         {
             leftButton.gameObject.SetActive(false);
+            
         }
         else
         {
@@ -28,7 +31,11 @@ public class TransformCamera : MonoBehaviour
         }
         else
         {
-            rightButton.gameObject.SetActive(true);
+            if(unlocked == true)
+            {
+                rightButton.gameObject.SetActive(true);
+            }
+           
         }
 
     }

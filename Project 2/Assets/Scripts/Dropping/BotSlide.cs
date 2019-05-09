@@ -17,11 +17,11 @@ public class BotSlide : MonoBehaviour
     private void SlideIn()
     {
         slideAnim.enabled = true;
-        slideAnim.Play("botpanelSlide");
+        slideAnim.Play("slideup");
     }
     private void SlideOut()
     {
-        slideAnim.Play("botpanelSlide 0");
+        slideAnim.Play("slideup 0");
     }
     public void ToggleSlide()
     {
