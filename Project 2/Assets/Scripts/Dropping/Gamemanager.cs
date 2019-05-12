@@ -10,15 +10,21 @@ public class Gamemanager : MonoBehaviour
     //you get this amt of trash
     public float getTrash;
     //each var is holds amt of buildings for that type
-    public float friend, garbageman;
+    public float friend, garbageman, organization, government, cult;
     //cost to get the type of building
-    public float friendcost, garbagemancost;
+    public float friendcost, garbagemancost, orgcost, govcost, cultcost;
+    //check to see if color should be black or white
+    public float org_bw, gov_bw, cult_bw;
     //cost of next getTrash;
     public float getTrashCost;
     public float slideval, slidevalvis;
     public bool goingdown;
-    public bool tutState;
-    public int tutorialState;
+
+    //tutorial stuff
+    public bool activateThisIsShop, thisIsShopWasActive, activateUpgrade, upgradeWasActive;
+    public int helloWelcome, clickOnTrash, thisIsUpgrade, firstUpgrade, thisIsShop, firstHire;
+    public int shopActivated, upgradeActivated;
+    public int statsTut, prestigeTut;
     //special skill 1
     public float vaccumTime, vaccumTimeHold, vaccumTimeHoldCost, vacCooldown, vacCooldownHold, vacCooldownCost, hasVacSkill;
     //achievements and stats
@@ -42,16 +48,30 @@ public class Gamemanager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //tutState = true;
+        
         goingdown = false;
         trash = 0;
         trashpersec = 0;
         friend = 0;
         garbageman = 0;
+        organization = 0;
+        government = 0;
+        cult = 0;
+
         getTrash = 1;
         getTrashCost = 10;
+
+
         friendcost = 15;
         garbagemancost = 100;
+        orgcost = 1000;
+        govcost = 100000;
+        cultcost = 1000000;
+
+        org_bw = 0;
+        gov_bw = 0;
+        cult_bw = 0;
+
         vaccumTime = 0;
         vaccumTimeHold = 30;
         vaccumTimeHoldCost = 100;
@@ -73,15 +93,6 @@ public class Gamemanager : MonoBehaviour
             slidevalvis -= 5 * Time.deltaTime;
         }
 
-        if(tutorialState == 1)
-        {
-            tutState = true;
-        }
-        else if (tutorialState == 0)
-        {
-            tutState = false;
-        }
-
         if(solarPanels > 0)
         {
             trash += trashpersec * Time.deltaTime * solarPanels;
@@ -97,14 +108,31 @@ public class Gamemanager : MonoBehaviour
             bestTrash = trash;
         }
 
-        //if(MusicBool == true)
-        //{
-        //    MusicOnOff = 1;
-        //}
-        //else if(MusicBool == false)
-        //{
-        //    MusicOnOff = 0;
-        //}
+        if(trash >= 9)
+        {
+            activateUpgrade = true;
+        }
+        if(trash >= 14)
+        {
+            activateThisIsShop = true;
+        }
+        if(shopActivated == 1)
+        {
+            thisIsShopWasActive = true;
+        }
+        else
+        {
+            thisIsShopWasActive = false;
+        }
+        if (upgradeActivated == 1)
+        {
+            upgradeWasActive = true;
+        }
+        else
+        {
+            upgradeWasActive = false;
+        }
+        
     }
     
     public void ResetGame()
@@ -114,10 +142,23 @@ public class Gamemanager : MonoBehaviour
         trashpersec = 0;
         friend = 0;
         garbageman = 0;
+        organization = 0;
+        government = 0;
+        cult = 0;
+
         getTrash = 1;
         getTrashCost = 10;
+
         friendcost = 15;
         garbagemancost = 100;
+        orgcost = 1000;
+        govcost = 100000;
+        cultcost = 1000000;
+
+        org_bw = 0;
+        gov_bw = 0;
+        cult_bw = 0;
+
         vaccumTimeHold = 30;
         vaccumTimeHoldCost = 100;
         vacCooldown = 0;
@@ -162,9 +203,41 @@ public class Gamemanager : MonoBehaviour
         trashpersec = data.trashpersec;
         getTrash = data.getTrash;
         getTrashCost = data.getTrashCost;
+
+
         friend = data.friend;
+        garbageman = data.garbageman;
+        organization = data.organization;
+        government = data.government;
+        cult = data.cult;
+
+
+
+
         friendcost = data.friendcost;
-        tutorialState = data.tutorialState;
+        garbagemancost = data.garbagemancost;
+        orgcost = data.orgcost;
+        govcost = data.govcost;
+        cultcost = data.cultcost;
+
+
+        org_bw = data.org_bw;
+        gov_bw = data.gov_bw;
+        cult_bw = data.cult_bw;
+
+        //tutorial
+        helloWelcome = data.helloWelcome;
+        clickOnTrash = data.clickOnTrash;
+        thisIsShop = data.thisIsShop;
+        firstHire = data.firstHire;
+        thisIsUpgrade = data.thisIsUpgrade;
+        firstUpgrade = data.firstUpgrade;
+        statsTut = data.statsTut;
+        prestigeTut = data.prestigeTut;
+        shopActivated = data.shopActivated;
+        upgradeActivated = data.upgradeActivated;
+
+        //achievements
         bestTrash = data.bestTrash;
         solarPanels = data.solarPanels;
         vaccumTimeHold = data.vaccumTimeHold;
