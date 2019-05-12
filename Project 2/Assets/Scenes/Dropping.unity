@@ -16040,6 +16040,7 @@ GameObject:
   - component: {fileID: 1810160148}
   - component: {fileID: 1810160149}
   - component: {fileID: 1810160150}
+  - component: {fileID: 1810160151}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -16246,6 +16247,25 @@ MonoBehaviour:
   org_img: {fileID: 1871573081}
   gov_img: {fileID: 219364045}
   cult_img: {fileID: 181364279}
+--- !u!114 &1810160151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810160141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7e8ee94f9ceb549860894dd8276a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeButton:
+  - {fileID: 1991243761}
+  - {fileID: 1277403468}
+  trashSkill: {fileID: 0}
+  vaccumTxt: {fileID: 0}
+  trashSkillCost: {fileID: 0}
+  vaccumTxtCost: {fileID: 0}
 --- !u!1 &1814052431
 GameObject:
   m_ObjectHideFlags: 0

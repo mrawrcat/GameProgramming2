@@ -132,7 +132,20 @@ public class Gamemanager : MonoBehaviour
         {
             upgradeWasActive = false;
         }
-        
+
+        if (Gamemanager.manager.trash >= Gamemanager.manager.orgcost)
+        {
+            Gamemanager.manager.org_bw = 1;
+        }
+        if (Gamemanager.manager.trash >= Gamemanager.manager.govcost)
+        {
+            Gamemanager.manager.gov_bw = 1;
+        }
+        if (Gamemanager.manager.trash >= Gamemanager.manager.cultcost)
+        {
+            Gamemanager.manager.cult_bw = 1;
+        }
+
     }
     
     public void ResetGame()

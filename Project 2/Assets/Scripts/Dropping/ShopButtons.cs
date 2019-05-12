@@ -11,11 +11,8 @@ public class ShopButtons : MonoBehaviour
     public Text friend_cost, garb_cost, org_cost, gov_cost, cult_cost;
 
     public Image org_img, gov_img, cult_img;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    
 
     // Update is called once per frame
     void Update()

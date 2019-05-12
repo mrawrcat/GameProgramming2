@@ -65,19 +65,8 @@ public class clickTrash : MonoBehaviour
                 //Gamemanager.manager.thisIsShopWasActive = true;
             }
 
-            //checking to see if can reveal shopitem
-            if(Gamemanager.manager.trash >= Gamemanager.manager.orgcost)
-            {
-                Gamemanager.manager.org_bw = 1;
-            }
-            if (Gamemanager.manager.trash >= Gamemanager.manager.govcost)
-            {
-                Gamemanager.manager.gov_bw = 1;
-            }
-            if (Gamemanager.manager.trash >= Gamemanager.manager.cultcost)
-            {
-                Gamemanager.manager.cult_bw = 1;
-            }
+            
+            
 
             Gamemanager.manager.trash += Gamemanager.manager.getTrash;
             helper.particles[helper.currentparticle].transform.position = trashpos.position;

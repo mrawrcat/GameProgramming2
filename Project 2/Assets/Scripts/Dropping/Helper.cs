@@ -71,8 +71,6 @@ public class Helper : MonoBehaviour
     }
 
 
-
-
     public void resetGame()
     {
         Gamemanager.manager.ResetGame();
