@@ -11,6 +11,8 @@ public class MusicOnOff : MonoBehaviour {
     public Sprite OffSpritePressed;
     public Button button;
     private SpriteState spriteState;
+
+    
     private void Start()
     {
         if(Gamemanager.manager.MusicOnOff == 0)
@@ -54,4 +56,6 @@ public class MusicOnOff : MonoBehaviour {
         Gamemanager.manager.SwitchMusic();
         
     }
+
+    
 }

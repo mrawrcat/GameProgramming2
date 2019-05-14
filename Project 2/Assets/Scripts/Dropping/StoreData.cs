@@ -23,16 +23,22 @@ public class StoreData
     public int helloWelcome, clickOnTrash, thisIsUpgrade, firstUpgrade, thisIsShop, firstHire;
     public int statsTut, prestigeTut;
     public int shopActivated, upgradeActivated;
-    //special skills
+    //special skill 1
     public float vaccumTime, vaccumTimeHold, vaccumTimeHoldCost, vacCooldown, vacCooldownHold, vacCooldownCost, hasVacSkill;
+    //special skill 2
+    public float truckCooldown, truckCooldownHold, truckCooldownCost, hasTruckSkill;
+    //special skill 3
+    public float handTime, handTimeHold, handTimeHoldCost, handCooldown, handCooldownHold, handCooldownCost, hasHandSkill;
     //Stats/Achievements
     public float bestTrash;
-    public float vacTimeAchivement;
+    public float vacTimeAchivement, truckTimeAchivement, handTimeAchivement;
     //Prestige mechanics
     public float solarPanels;
+    //more trash
+    public float moreTrash1, moreTrash2;
 
     //music
-    public float MusicOnOff;
+    public float MusicOnOff, sfxOnOff;
     public StoreData(Gamemanager manager)
     {
         trash = manager.trash;
@@ -73,19 +79,40 @@ public class StoreData
         //achievements
         bestTrash = manager.bestTrash;
         vacTimeAchivement = manager.vacTimeAchivement;
-
+        truckTimeAchivement = manager.truckTimeAchivement;
+        handTimeAchivement = manager.handTimeAchivement;
 
         //prestige
         solarPanels = manager.solarPanels;
 
-        //skill
+        //skill 1
         vaccumTimeHold = manager.vaccumTimeHold;
         vaccumTimeHoldCost = manager.vaccumTimeHoldCost;
         vacCooldown = manager.vacCooldown;
         vacCooldownHold = manager.vacCooldownHold;
         vacCooldownCost = manager.vacCooldownCost;
         hasVacSkill = manager.hasVacSkill;
+
+        //skill 2
         
+        truckCooldown = manager.truckCooldown;
+        truckCooldownHold = manager.truckCooldownHold;
+        truckCooldownCost = manager.truckCooldownCost;
+        hasTruckSkill = manager.hasTruckSkill;
+
+        //skill 3
+        handTimeHold = manager.handTimeHold;
+        handTimeHoldCost = manager.handTimeHoldCost;
+        handCooldown = manager.handCooldown;
+        handCooldownHold = manager.handCooldownHold;
+        handCooldownCost = manager.handCooldownCost;
+        hasHandSkill = manager.hasHandSkill;
+
         MusicOnOff = manager.MusicOnOff;
+        sfxOnOff = manager.sfxOnOff;
+
+        //more trash
+        moreTrash1 = manager.moreTrash1;
+        moreTrash2 = manager.moreTrash2;
     }
 }

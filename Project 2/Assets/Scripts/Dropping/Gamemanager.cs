@@ -20,6 +20,8 @@ public class Gamemanager : MonoBehaviour
     public float slideval, slidevalvis;
     public bool goingdown;
 
+    //get more trash stuff
+    public float moreTrash1, moreTrash2;
     //tutorial stuff
     public bool activateThisIsShop, thisIsShopWasActive, activateUpgrade, upgradeWasActive;
     public int helloWelcome, clickOnTrash, thisIsUpgrade, firstUpgrade, thisIsShop, firstHire;
@@ -27,15 +29,19 @@ public class Gamemanager : MonoBehaviour
     public int statsTut, prestigeTut;
     //special skill 1
     public float vaccumTime, vaccumTimeHold, vaccumTimeHoldCost, vacCooldown, vacCooldownHold, vacCooldownCost, hasVacSkill;
+    //special skill 2
+    public float truckCooldown, truckCooldownHold, truckCooldownCost, hasTruckSkill;
+    //special skill 3
+    public float handTime, handTimeHold, handTimeHoldCost, handCooldown, handCooldownHold, handCooldownCost, hasHandSkill;
     //achievements and stats
     public float bestTrash;
-    public float vacTimeAchivement; 
+    public float vacTimeAchivement, truckTimeAchivement, handTimeAchivement;
     //Prestige mechanics
     public float solarPanels;
 
     //music
     public bool MusicBool;
-    public float MusicOnOff;
+    public float MusicOnOff, sfxOnOff;
 
     private void Awake()
     {
@@ -76,11 +82,13 @@ public class Gamemanager : MonoBehaviour
         vaccumTimeHold = 30;
         vaccumTimeHoldCost = 100;
         vacCooldown = 0;
-        vacCooldownHold = 60;
+        vacCooldownHold = 45;
         vacCooldownCost = 100;
         hasVacSkill = 0;
-        //MusicOnOff = 1;
-        //MusicBool = true;
+
+        moreTrash1 = 0;
+        moreTrash2 = 0;
+        
     }
 
     // Update is called once per frame
@@ -88,6 +96,9 @@ public class Gamemanager : MonoBehaviour
     {
 
         Vaccum();
+        Truck();
+        Hand();
+
         if(goingdown == true)
         {
             slidevalvis -= 5 * Time.deltaTime;
@@ -133,6 +144,8 @@ public class Gamemanager : MonoBehaviour
             upgradeWasActive = false;
         }
 
+
+        //shop item can show or not
         if (Gamemanager.manager.trash >= Gamemanager.manager.orgcost)
         {
             Gamemanager.manager.org_bw = 1;
@@ -172,19 +185,39 @@ public class Gamemanager : MonoBehaviour
         gov_bw = 0;
         cult_bw = 0;
 
+        //skill 1
         vaccumTimeHold = 30;
         vaccumTimeHoldCost = 100;
         vacCooldown = 0;
-        vacCooldownHold = 60;
+        vacCooldownHold = 45;
         vacCooldownCost = 100;
         hasVacSkill = 0;
-        
+
+        //skill 2
+        truckCooldown = 0;
+        truckCooldownHold = 60;
+        truckCooldownCost = 100;
+        hasTruckSkill = 0;
+
+        //skill 3
+        handTimeHold = 30;
+        handTimeHoldCost = 100;
+        handCooldown = 0;
+        handCooldownHold = 90;
+        handCooldownCost = 100;
+        hasHandSkill = 0;
+
+        //more trash
+        moreTrash1 = 0;
+        moreTrash2 = 0;
     }
 
     public void WipeGame()
     {
         bestTrash = 0;
         vacTimeAchivement = 0;
+        truckTimeAchivement = 0;
+        handTimeAchivement = 0;
     }
 
 
@@ -200,7 +233,17 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
-
+    public void SwitchSFX()
+    {
+        if(sfxOnOff == 1)
+        {
+            sfxOnOff = 0;
+        }
+        else
+        {
+            sfxOnOff = 1;
+        }
+    }
 
 
 
@@ -252,15 +295,42 @@ public class Gamemanager : MonoBehaviour
 
         //achievements
         bestTrash = data.bestTrash;
+        vacTimeAchivement = data.vacTimeAchivement;
+        truckTimeAchivement = data.truckTimeAchivement;
+        handTimeAchivement = data.handTimeAchivement;
+
+        //prestige
         solarPanels = data.solarPanels;
+
+        //skill 1
         vaccumTimeHold = data.vaccumTimeHold;
         vaccumTimeHoldCost = data.vaccumTimeHoldCost;
         vacCooldown = data.vacCooldown;
         vacCooldownHold = data.vacCooldownHold;
         vacCooldownCost = data.vacCooldownCost;
         hasVacSkill = data.hasVacSkill;
-        vacTimeAchivement = data.vacTimeAchivement;
+
+        //skill 2
+        truckCooldown = data.truckCooldown;
+        truckCooldownHold = data.truckCooldownHold;
+        truckCooldownCost = data.truckCooldownCost;
+        hasTruckSkill = data.hasTruckSkill;
+
+        //skill 3
+        handTimeHold = data.handTimeHold;
+        handTimeHoldCost = data.handTimeHoldCost;
+        handCooldown = data.handCooldown;
+        handCooldownHold = data.handCooldownHold;
+        handCooldownCost = data.handCooldownCost;
+        hasHandSkill = data.hasHandSkill;
+
+        //sounds
         MusicOnOff = data.MusicOnOff;
+        sfxOnOff = data.sfxOnOff;
+
+        //more trash
+        moreTrash1 = data.moreTrash1;
+        moreTrash2 = data.moreTrash2;
     }
 
     private void Vaccum()
@@ -278,6 +348,39 @@ public class Gamemanager : MonoBehaviour
         if(vaccumTime > 0)
         {
             vacTimeAchivement += Time.deltaTime;
+        }
+    }
+
+    private void Truck()
+    {
+        
+        if (truckCooldown <= 0)
+        {
+            truckCooldown = 0;
+        }
+        else
+        {
+            truckCooldown -= Time.deltaTime;
+        }
+
+        
+    }
+
+    private void Hand()
+    {
+        handTime -= Time.deltaTime;
+        if (handCooldown <= 0)
+        {
+            handCooldown = 0;
+        }
+        else
+        {
+            handCooldown -= Time.deltaTime;
+        }
+
+        if (vaccumTime > 0)
+        {
+            handTimeAchivement += Time.deltaTime;
         }
     }
 }

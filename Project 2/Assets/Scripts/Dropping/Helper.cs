@@ -11,10 +11,12 @@ public class Helper : MonoBehaviour
     public Text incrTrash;
     public Text bestTrash;
     //special skills
-    public Text vacCooldown , vacDesc, bestVacTime;
-    public Button vacSkill, getVacSkill;
+    
+   
     public GameObject[] particles;
     public int currentparticle, reset;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,22 +37,12 @@ public class Helper : MonoBehaviour
         trashperclick.text = Gamemanager.manager.getTrash + " Per Pick Up";
         incrTrash.text = "Costs: " + Gamemanager.manager.getTrashCost.ToString("F2");
         bestTrash.text = "Highest Amount of Trash Recycled: " + Gamemanager.manager.bestTrash.ToString("F2") + " Trash";
-        vacCooldown.text = Gamemanager.manager.vacCooldown.ToString("F0");
-        bestVacTime.text = "Vaccum Time: " + Gamemanager.manager.vacTimeAchivement;
-
-        VaccumSkill();
+        
         
     }
 
    
-    public void getVaccumSkill()
-    {
-        if(Gamemanager.manager.trash >= 1000)
-        {
-            Gamemanager.manager.trash -= 1000;
-            Gamemanager.manager.hasVacSkill = 1;
-        }
-    }
+    
     public void increaseVaccumTime()
     {
         if(Gamemanager.manager.trash >= Gamemanager.manager.vaccumTimeHoldCost)
@@ -85,25 +77,25 @@ public class Helper : MonoBehaviour
     {
         Gamemanager.manager.SaveData();
     }
-    private void VaccumSkill()
-    {
-        //vaccumskill
-        if(Gamemanager.manager.hasVacSkill <= 0)
-        {
-            vacSkill.interactable = false;
-            getVacSkill.interactable = true;
-        }
-        if (Gamemanager.manager.vacCooldown > 0)
-        {
-            vacSkill.interactable = false;
-            vacCooldown.gameObject.SetActive(true);
-        }
-        else if(Gamemanager.manager.vacCooldown <= 0 && Gamemanager.manager.hasVacSkill >= 1)
-        {
-            getVacSkill.interactable = false;
-            vacSkill.interactable = true;
-            vacCooldown.gameObject.SetActive(false);
-            vacDesc.gameObject.SetActive(true);
-        }
-    }
+    //private void VaccumSkill()
+    //{
+    //    //vaccumskill
+    //    if(Gamemanager.manager.hasVacSkill <= 0)
+    //    {
+    //        vacSkill.interactable = false;
+    //        getVacSkill.interactable = true;
+    //    }
+    //    if (Gamemanager.manager.vacCooldown > 0)
+    //    {
+    //        vacSkill.interactable = false;
+    //        vacCooldown.gameObject.SetActive(true);
+    //    }
+    //    else if(Gamemanager.manager.vacCooldown <= 0 && Gamemanager.manager.hasVacSkill >= 1)
+    //    {
+    //        getVacSkill.interactable = false;
+    //        vacSkill.interactable = true;
+    //        vacCooldown.gameObject.SetActive(false);
+    //        vacDesc.gameObject.SetActive(true);
+    //    }
+    //}
 }
