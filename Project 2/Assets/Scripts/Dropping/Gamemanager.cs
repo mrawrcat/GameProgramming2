@@ -13,6 +13,7 @@ public class Gamemanager : MonoBehaviour
     public float friend, garbageman, organization, government, cult;
     //cost to get the type of building
     public float friendcost, garbagemancost, orgcost, govcost, cultcost;
+    public float bonusTrash, bonusTrashCost;
     //check to see if color should be black or white
     public float org_bw, gov_bw, cult_bw;
     //cost of next getTrash;
@@ -23,10 +24,10 @@ public class Gamemanager : MonoBehaviour
     //get more trash stuff
     public float moreTrash1, moreTrash2;
     //tutorial stuff
-    public bool activateThisIsShop, thisIsShopWasActive, activateUpgrade, upgradeWasActive;
-    public int helloWelcome, clickOnTrash, thisIsUpgrade, firstUpgrade, thisIsShop, firstHire;
+    public int helloWelcome, thisIsUpgrade, thisIsShop;
     public int shopActivated, upgradeActivated;
     public int statsTut, prestigeTut;
+    public int statsActivated, prestigeActivated;
     //special skill 1
     public float vaccumTime, vaccumTimeHold, vaccumTimeHoldCost, vacCooldown, vacCooldownHold, vacCooldownCost, hasVacSkill;
     //special skill 2
@@ -119,30 +120,7 @@ public class Gamemanager : MonoBehaviour
             bestTrash = trash;
         }
 
-        if(trash >= 9)
-        {
-            activateUpgrade = true;
-        }
-        if(trash >= 14)
-        {
-            activateThisIsShop = true;
-        }
-        if(shopActivated == 1)
-        {
-            thisIsShopWasActive = true;
-        }
-        else
-        {
-            thisIsShopWasActive = false;
-        }
-        if (upgradeActivated == 1)
-        {
-            upgradeWasActive = true;
-        }
-        else
-        {
-            upgradeWasActive = false;
-        }
+        
 
 
         //shop item can show or not
@@ -172,6 +150,8 @@ public class Gamemanager : MonoBehaviour
         government = 0;
         cult = 0;
 
+        bonusTrash = 30;
+        bonusTrashCost = 30;
         getTrash = 1;
         getTrashCost = 10;
 
@@ -268,7 +248,8 @@ public class Gamemanager : MonoBehaviour
         cult = data.cult;
 
 
-
+        bonusTrash = data.bonusTrash;
+        bonusTrashCost = data.bonusTrashCost;
 
         friendcost = data.friendcost;
         garbagemancost = data.garbagemancost;
@@ -283,15 +264,16 @@ public class Gamemanager : MonoBehaviour
 
         //tutorial
         helloWelcome = data.helloWelcome;
-        clickOnTrash = data.clickOnTrash;
         thisIsShop = data.thisIsShop;
-        firstHire = data.firstHire;
         thisIsUpgrade = data.thisIsUpgrade;
-        firstUpgrade = data.firstUpgrade;
+        
         statsTut = data.statsTut;
         prestigeTut = data.prestigeTut;
         shopActivated = data.shopActivated;
         upgradeActivated = data.upgradeActivated;
+        statsActivated = data.statsActivated;
+        prestigeActivated = data.prestigeActivated;
+
 
         //achievements
         bestTrash = data.bestTrash;
@@ -378,7 +360,7 @@ public class Gamemanager : MonoBehaviour
             handCooldown -= Time.deltaTime;
         }
 
-        if (vaccumTime > 0)
+        if (handTime > 0)
         {
             handTimeAchivement += Time.deltaTime;
         }

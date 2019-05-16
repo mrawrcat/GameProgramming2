@@ -10,6 +10,8 @@ public class Helper : MonoBehaviour
     //Text for Shop
     public Text incrTrash;
     public Text bestTrash;
+    public Text bonusTrash, bonusTrashCost;
+    public Button getMoreBonusBtn;
     //special skills
     
    
@@ -37,12 +39,26 @@ public class Helper : MonoBehaviour
         trashperclick.text = Gamemanager.manager.getTrash + " Per Pick Up";
         incrTrash.text = "Costs: " + Gamemanager.manager.getTrashCost.ToString("F2");
         bestTrash.text = "Highest Amount of Trash Recycled: " + Gamemanager.manager.bestTrash.ToString("F2") + " Trash";
-        
+        bonusTrash.text = "+" + Gamemanager.manager.bonusTrash.ToString("F1");
+        bonusTrashCost.text = "Costs: " + Gamemanager.manager.bonusTrashCost.ToString("F2");
+
+        moreBonus();
         
     }
 
-   
-    
+    private void moreBonus()
+    {
+        if (Gamemanager.manager.trash >= Gamemanager.manager.bonusTrashCost)
+        {
+            getMoreBonusBtn.interactable = true;
+        }
+        else
+        {
+            getMoreBonusBtn.interactable = false;
+        }
+    }
+
+
     public void increaseVaccumTime()
     {
         if(Gamemanager.manager.trash >= Gamemanager.manager.vaccumTimeHoldCost)
@@ -62,6 +78,15 @@ public class Helper : MonoBehaviour
         }
     }
 
+    public void getMoreBonus()
+    {
+        if(Gamemanager.manager.trash >= Gamemanager.manager.bonusTrashCost)
+        {
+            Gamemanager.manager.trash -= Gamemanager.manager.bonusTrashCost;
+            Gamemanager.manager.bonusTrash += 30;
+            Gamemanager.manager.bonusTrashCost += Gamemanager.manager.bonusTrashCost / 2;
+        }
+    }
 
     public void resetGame()
     {
@@ -77,25 +102,6 @@ public class Helper : MonoBehaviour
     {
         Gamemanager.manager.SaveData();
     }
-    //private void VaccumSkill()
-    //{
-    //    //vaccumskill
-    //    if(Gamemanager.manager.hasVacSkill <= 0)
-    //    {
-    //        vacSkill.interactable = false;
-    //        getVacSkill.interactable = true;
-    //    }
-    //    if (Gamemanager.manager.vacCooldown > 0)
-    //    {
-    //        vacSkill.interactable = false;
-    //        vacCooldown.gameObject.SetActive(true);
-    //    }
-    //    else if(Gamemanager.manager.vacCooldown <= 0 && Gamemanager.manager.hasVacSkill >= 1)
-    //    {
-    //        getVacSkill.interactable = false;
-    //        vacSkill.interactable = true;
-    //        vacCooldown.gameObject.SetActive(false);
-    //        vacDesc.gameObject.SetActive(true);
-    //    }
-    //}
+    
+    
 }

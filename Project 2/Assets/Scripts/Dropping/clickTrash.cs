@@ -52,18 +52,7 @@ public class clickTrash : MonoBehaviour
         }
         else
         {
-            Gamemanager.manager.clickOnTrash = 0;
-
-            if (Gamemanager.manager.activateUpgrade == true && Gamemanager.manager.upgradeWasActive == false)
-            {
-                Gamemanager.manager.thisIsUpgrade = 1;
-                //Gamemanager.manager.upgradeWasActive = true;
-            }
-            if (Gamemanager.manager.activateThisIsShop == true && Gamemanager.manager.thisIsShopWasActive == false && Gamemanager.manager.upgradeWasActive == true)
-            {
-                Gamemanager.manager.thisIsShop = 1;
-                //Gamemanager.manager.thisIsShopWasActive = true;
-            }
+            
 
             
             
@@ -79,7 +68,7 @@ public class clickTrash : MonoBehaviour
             if (Gamemanager.manager.slidevalvis >= 29 && Gamemanager.manager.goingdown == false)
             {
                 Debug.Log("hit cap");
-                Gamemanager.manager.trash += 30;
+                Gamemanager.manager.trash += Gamemanager.manager.bonusTrash;
             }
             if (Gamemanager.manager.slideval <= 30 && Gamemanager.manager.goingdown == false)
             {

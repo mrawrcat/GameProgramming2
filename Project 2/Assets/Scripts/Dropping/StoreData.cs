@@ -13,6 +13,7 @@ public class StoreData
     public float friend, garbageman, organization, government, cult;
     //cost to get the type of building
     public float friendcost, garbagemancost, orgcost, govcost, cultcost;
+    public float bonusTrash, bonusTrashCost;
     //check to see if color should be black or white
     public float org_bw, gov_bw, cult_bw;
     //cost of next getTrash;
@@ -20,9 +21,10 @@ public class StoreData
     public float slideval, slidevalvis;
     
     //tutorial
-    public int helloWelcome, clickOnTrash, thisIsUpgrade, firstUpgrade, thisIsShop, firstHire;
+    public int helloWelcome, thisIsUpgrade, thisIsShop;
     public int statsTut, prestigeTut;
     public int shopActivated, upgradeActivated;
+    public int statsActivated, prestigeActivated;
     //special skill 1
     public float vaccumTime, vaccumTimeHold, vaccumTimeHoldCost, vacCooldown, vacCooldownHold, vacCooldownCost, hasVacSkill;
     //special skill 2
@@ -53,6 +55,9 @@ public class StoreData
         government = manager.government;
         cult = manager.cult;
 
+        bonusTrash = manager.bonusTrash;
+        bonusTrashCost = manager.bonusTrashCost;
+
 
         friendcost = manager.friendcost;
         garbagemancost = manager.garbagemancost;
@@ -66,15 +71,14 @@ public class StoreData
 
         //tutorial
         helloWelcome = manager.helloWelcome;
-        clickOnTrash = manager.clickOnTrash;
         thisIsShop = manager.thisIsShop;
-        firstHire = manager.firstHire;
         thisIsUpgrade = manager.thisIsUpgrade;
-        firstUpgrade = manager.firstUpgrade;
         statsTut = manager.statsTut;
         prestigeTut = manager.prestigeTut;
         shopActivated = manager.shopActivated;
         upgradeActivated = manager.upgradeActivated;
+        statsActivated = manager.statsActivated;
+        prestigeActivated = manager.prestigeActivated;
 
         //achievements
         bestTrash = manager.bestTrash;
